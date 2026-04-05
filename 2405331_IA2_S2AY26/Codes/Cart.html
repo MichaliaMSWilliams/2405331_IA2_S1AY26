@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart</title>
+        <link rel="stylesheet" href="../Styles/PACC.css">
+    </head>
+    <body>
+        <nav>
+            <a href="Products.html">Products</a>
+            <a href="Checkout.html">Cart</a>
+            <a href="About Us.html">Checkout</a>
+        </nav>
+
+        <div class="cart-display">
+            <h2>Your Selected Plan</h2>
+            <div id="cartDetails">
+                <p><strong>Event:</strong> <span id="displayEvent">---</span></p>
+                <p><strong>Service:</strong> <span id="displayService">---</span></p>
+                <p><strong>Items:</strong></p>
+                <ul id="displayItems"></ul>
+                <hr>
+                <h3>Total Price: <span id="displayTotal">$0</span></h3>
+            </div>
+            
+            <div class="cart-actions">
+                <button onclick="window.location.href='Checkout.html'">Checkout</button>
+                <button onclick="clearCart()">Clear Cart</button>
+                <br><br>
+                <a href="products.html" class="back-btn">Go Back to Products</a>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+
+        <script>
+            function displayCart() {
+                // Pull the data string from localStorage
+                const dataString = localStorage.getItem('userCart');
+                
+                if (dataString) {
+                    // Convert string back into a JavaScript Object
+                    const myCart = JSON.parse(dataString);
+                    
+                    // 1. Update the simple text fields
+                    document.getElementById('displayEvent').innerText = myCart.event;
+                    document.getElementById('displayService').innerText = myCart.service;
+                    document.getElementById('displayTotal').innerText = myCart.total;
+
+                    // 2. Update the Items List (Array)
+                    const itemsList = document.getElementById('displayItems');
+                    itemsList.innerHTML = ""; // Clear the "---" or previous list
+                    
+                    myCart.items.forEach(item => {
+                        let li = document.createElement('li');
+                        li.textContent = item;
+                        itemsList.appendChild(li);
+                    });
+                    
+                    console.log("Cart loaded successfully:", myCart);
+                } else {
+                    // If cart is empty
+                    document.getElementById('cartDetails').innerHTML = "<h3>Your cart is empty!</h3>";
+                }
+            }
+
+            // Function to wipe the data
+            function clearCart() {
+                if(confirm("Are you sure you want to clear your selections?")) {
+                    localStorage.removeItem('userCart'); // Remove only the cart data
+                    location.reload(); // Refresh the page to show it's empty
+                }
+            }
+
+            // Run the display function as soon as the page loads
+            window.onload = displayCart;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Event Services</title>
+    <link rel="stylesheet" href="../Styles/PACC.css">
+</head>
+<body>
+
+    <nav>
+        <a href="Products.html">Products</a>
+        <a href="Cart.html">Cart</a>
+        <a href="About Us.htm">Checkout</a>
+    </nav>
+
+    <div class="checkout-wrapper">
+        <h1>Finalize Your Booking</h1>
+
+        <section class="summary-box">
+            <h2>Order Summary</h2>
+            <div id="checkoutSummary">
+                <p><strong>Event Type:</strong> <span id="sumEvent">---</span></p>
+                <p><strong>Service Level:</strong> <span id="sumService">---</span></p>
+                <p><strong>Total Amount Due:</strong> <span id="sumTotal">$0</span></p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="details-form">
+            <h2>Shipping & Payment Details</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="userName">Full Name:</label>
+                    <input type="text" id="userName" name="userName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userAddress">Shipping Address:</label>
+                    <textarea id="userAddress" name="userAddress" rows="3" placeholder="Street, City, Zip Code" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentAmount">Amount Being Paid ($):</label>
+                    <input type="number" id="paymentAmount" name="paymentAmount" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="btn-confirm" onclick="handleConfirm()">Confirm Order</button>
+                    <button type="button" class="btn-cancel" onclick="handleCancel()">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <hr>
+
+        <div class="control-bar">
+            <button class="btn-clear" onclick="clearAllFields()">Clear All</button>
+            <button class="btn-checkout" onclick="finalCheckOut()">Check Out</button>
+            <button class="btn-close" onclick="closePage()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Load data from localStorage when page opens
+        window.onload = function() {
+            const savedData = localStorage.getItem('userCart');
+            if (savedData) {
+                const cart = JSON.parse(savedData);
+                document.getElementById('sumEvent').innerText = cart.event;
+                document.getElementById('sumService').innerText = cart.service;
+                document.getElementById('sumTotal').innerText = cart.total;
+                
+                // Auto-fill the payment amount based on the total
+                const numericTotal = cart.total.replace(/[^0-9.]/g, '');
+                document.getElementById('paymentAmount').value = numericTotal;
+            }
+        };
+
+        // BUTTON FUNCTIONS
+        
+        function handleConfirm() {
+            const name = document.getElementById('userName').value;
+            if(!name) {
+                alert("Please fill in your name before confirming.");
+                return;
+            }
+            alert("Order confirmed for " + name + "! We have saved your details.");
+        }
+
+        function handleCancel() {
+            if(confirm("Discard changes and return to Cart?")) {
+                window.location.href = 'Cart.html';
+            }
+        }
+
+        function clearAllFields() {
+            if(confirm("This will clear your form and your shopping cart. Continue?")) {
+                document.getElementById('checkoutForm').reset();
+                localStorage.removeItem('userCart');
+                alert("All data cleared.");
+                window.location.href = 'products.html';
+            }
+        }
+
+        function finalCheckOut() {
+            const amount = document.getElementById('paymentAmount').value;
+            if(amount > 0) {
+                alert("Thank you for your payment of $" + amount + ". Your event is now booked!");
+                localStorage.removeItem('userCart');
+                window.location.href = 'products.html';
+            } else {
+                alert("Please enter a valid payment amount.");
+            }
+        }
+
+        function closePage() {
+            if(confirm("Close this window?")) {
+                window.close();
+                // Fallback if window.close() is blocked by browser security
+                alert("Browser security may prevent script-based closing. Please close the tab manually.");
+            }
+        }
+    </script>
+
+</body>
+</html>

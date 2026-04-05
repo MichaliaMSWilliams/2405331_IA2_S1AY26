@@ -1,0 +1,193 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    height:100vh;
+
+    /* blue gradient background */
+    background: white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* login card */
+.login-container{
+    background:rgb(101, 199, 245);
+    padding:40px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+/* title */
+.login-container h2{
+    color:#0f4c81;
+    margin-bottom:20px;
+}
+
+
+/* labels */
+label{
+    display:block;
+    text-align:left;
+    margin-top:10px;
+    font-weight:bold;
+    color:#333;
+}
+
+/* input fields */
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+/* login button */
+button{
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+
+    background:linear-gradient(90deg, #0f4c81, #1e90ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* hover effect */
+button:hover{
+    background:linear-gradient(90deg, #1e90ff, #0f4c81);
+}
+
+#welcome-user {
+    font-size: 2rem;
+    color: #4169e1; /* Royal Blue */
+    text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.5); /* Sky Blue Glow */
+    margin-bottom: 0;
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* title */
+.registration-container h2{
+    color:#0f4c81;
+    margin-bottom:20px;
+}
+
+/* login card */
+.registration-container{
+    background:rgb(101, 199, 245);
+    padding:40px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+/* title */
+.registration-container h2{
+    color:#0f4c81;
+    margin-bottom:20px;
+}
+
+#registerBtn {
+    background: linear-gradient(135deg, #4169e1, #00bfff); /* Royal to Sky Blue */
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%; /* Makes it fit the container width */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+#registerBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(65, 105, 225, 0.5);
+}
+
+#registerBtn:active {
+    transform: translateY(0);
+}
+
+#loginBtn {
+    background: linear-gradient(135deg, #4169e1, #00bfff); /* Royal to Sky Blue */
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%; /* Makes it fit the container width */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+#loginBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(65, 105, 225, 0.5);
+}
+
+#loginBtn:active {
+    transform: translateY(0);
+}
+
+h1{
+  color: #1F75B8;
+  font-size: 40px;
+  text-align: center;
+  font-family: 'apple chancery', cursive;
+}
+
+.back-btn {
+    /* 1. Reset Link Defaults */
+    text-decoration: none;
+    display: inline-block;
+    
+    /* 2. Sizing & Spacing */
+    padding: 12px 24px;
+    margin: 10px 0;
+    
+    /* 3. Colors & Border */
+    background-color: #1F75B8; /* Dark gray to match a professional footer/nav */
+    color: #ffffff;
+    border: 2px solid #1F75B8;
+    border-radius: 5px;
+    
+    /* 4. Text Styling */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease; /* Makes the hover effect smooth */
+    cursor: pointer;
+}
+
+/* 5. Hover Effect */
+.back-btn:hover {
+    background-color: #1F75B8;
+    color: #333;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* 6. Active (Click) Effect */
+.back-btn:active {
+    transform: translateY(0);
+}
