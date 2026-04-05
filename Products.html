@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="../Styles/PACC.css">
+</head>
+<body>
+    <!-- Fixed Navbar -->
+    <nav>
+        <a href="#EventType">Event Type</a>
+        <a href="#EventItems">Event Items</a>
+        <a href="#EventThemeServices">Event Theme Services</a>
+    </nav>
+
+    <section id="EventType">
+        <h2>Choose Event Type:</h2>
+
+        <div class="event">
+            <label class="event-card">
+                <input type="radio" name="eventGroup" value="Birthday" onchange="updateItems()">
+                <div class="event-info">
+                    <h4>Birthdays</h4>
+                </div>
+            </label>
+
+            <label class="event-card">
+                <input type="radio" name="eventGroup" value="Graduation" onchange="updateItems()">
+                <div class="event-info">
+                    <h4>Graduation</h4>
+                </div>
+            </label>
+
+            <label class="event-card">
+                <input type="radio" name="eventGroup" value="Wedding" onchange="updateItems()">
+                <div class="event-info">
+                    <h4>Wedding</h4>
+                </div>
+            </label>
+
+            <label class="event-card">
+                <input type="radio" name="eventGroup" value="BabyShower" onchange="updateItems()">
+                <div class="event-info">
+                    <h4>BabyShower</h4>
+                </div>
+            </label>
+        </div>
+    </section>
+
+
+    <section id="EventItems">
+        <h2>Choose Event Items:</h2>
+
+        <div class="items" id="ItemContainer">
+            <label class="item-card Birthday Graduation BabyShower Wedding">
+                <input type="checkbox" value="Balloons" data-price="5000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Balloons</h4>
+                    <img src="../Assets/Balloons.jpg" alt="Balloons" width="200" height="150">
+                    <p class="price">$5,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                 
+            </label>
+
+            <label class="item-card Birthday BabyShower Wedding">
+                <input type="checkbox" value="BalloonArch" data-price="20000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Balloon Arch</h4>
+                    <img src="../Assets/Balloon Arches.jpg" alt="Balloon Arches" width="200" height="150">
+                    <p class="price">$20,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Birthday BabyShower Wedding">
+                <input type="checkbox" value="Banner" data-price="45000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Banner</h4>
+                    <img src="../Assets/Banners.jpg" alt="Banner" width="200" height="150">
+                    <p class="price">$45,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Birthday BabyShower Graduation Wedding">
+                <input type="checkbox" value="Signs" data-price="20000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Signs</h4>
+                    <img src="../Assets/Signs.jpg" alt="Signs.jpg" width="200" height="150">
+                    <p class="price">$20,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Birthday Wedding">
+                <input type="checkbox" value="Centerpieces" data-price="10000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Centerpieces</h4>
+                    <img src="../Assets/Centerpieces.jpg" alt="Centerpieces" width="200" height="150">
+                    <p class="price">$10,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Birthday BabyShower Wedding">
+                <input type="checkbox" value="Backdrops" data-price="10000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Backdrops</h4>
+                    <img src="../Assets/Backdrops.jpg" alt="Backdrops" width="200" height="150">
+                    <p class="price">$10,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Birthday BabyShower Wedding">
+                <input type="checkbox" value="Photo Booths" data-price="30000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Photo Booths</h4>
+                    <img src="../Assets/PhotoBooths.jpg" alt="Photo Booths" width="200" height="150">
+                    <p class="price">$30,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+
+            <label class="item-card Wedding">
+                <input type="checkbox" value="Flowers & Props" data-price="20000" onchange="updateItems()">
+                <div class="item-info">
+                    <h4>Flowers & Props</h4>
+                    <img src="../Assets/FlowersandTheme.jpg" alt="Flowers&Props" width="200" height="150">
+                    <p class="price">$20,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>                
+            </label>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="EventThemeServices">
+        <h2>Choose A Service/Services:</h2>
+
+        <div class="services">
+            <label class="service-card">
+                <input type="radio" value="VenueDecoration" name="serviceGroup" data-price="30000" onchange="updateItems()">
+                <div class="service-info">
+                    <h4>Venue Decoration</h4>
+                    <img src="../Assets/VenueDecorationSetUp.jpg" alt="VenueDecoration" width="200" height="150">                    
+                    <p class="price">$30,000</p>
+                    <p class="discount">10% OFF</p>
+                    <p class="desc">Full venue styling and setup</p>
+                </div>
+            </label>
+
+            <label class="service-card">
+                <input type="radio" value="BalloonArrangements" name="serviceGroup" data-price="25000" onchange="updateItems()">
+                <div class="service-info">
+                    <h4>Balloon Arrangements</h4>
+                    <img src="../Assets/theBalloonArrangements.jpg" alt="BalloonArrangements" width="200" height="150">
+                    <p class="price">$25,000</p>
+                    <p class="discount">5% OFF</p>
+                    <p class="desc">Custom balloon designs</p>
+                </div>
+            </label>
+
+            <label class="service-card">
+                <input type="radio" value="TableDecor" name="serviceGroup" data-price="30000" onchange="updateItems()">
+                <div class="service-info">
+                    <h4>Table & Chair Decor</h4>
+                    <img src="../Assets/TableandChair.webp" alt="Table&Chair" width="200" height="150">
+                    <p class="price">$30,000</p>
+                    <p class="discount">15% OFF</p>
+                    <p class="desc">Elegant seating arrangements</p>
+                </div>
+            </label>
+        </div>    
+
+
+    <div class="cart-summary">
+        <h3>Current Total: <span id="totalDisplay">$0</span></h3>
+    </div>
+    <button id="productBtn">Proceed to Checkout</button>    
+    <script src="script.js"></script>
+</body>
+</html>
